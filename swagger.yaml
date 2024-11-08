@@ -1,0 +1,301 @@
+openapi: 3.0.1
+info:
+  title: api-jobs-doc
+  description: ''
+  version: 1.0.0
+  
+servers: 
+  - url: https://star-jobs-api.onrender.com/api
+
+  
+tags:
+  - name: Auth
+  - name: Jobs
+paths:
+  /v1/auth/register:
+    post:
+      summary: Register User
+      deprecated: false
+      description: ''
+      tags:
+        - Auth
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+                - name
+                - email
+                - password
+              x-apidog-orders:
+                - name
+                - email
+                - password
+              x-apidog-ignore-properties: []
+            example:
+              name: anna
+              email: anna@gmail.com
+              password: secret
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security: []
+      x-apidog-folder: Auth
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490045-run
+  /v1/auth/login:
+    post:
+      summary: Login User
+      deprecated: false
+      description: ''
+      tags:
+        - Auth
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+                - email
+                - password
+              x-apidog-orders:
+                - email
+                - password
+              x-apidog-ignore-properties: []
+            example:
+              email: jane@gmail.com
+              password: jane2008
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security: []
+      x-apidog-folder: Auth
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490046-run
+  /v1/jobs:
+    get:
+      summary: Get All Jobs
+      deprecated: false
+      description: ''
+      tags:
+        - Jobs
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzI2MmQ1MzM5YjBlMDIwNzRiNmFiMzgiLCJuYW1lIjoiam9obiIsImlhdCI6MTczMDY0OTEzMSwiZXhwIjoxNzMxOTQ1MTMxfQ.YeGS23WVhSjplaqJvA__0H1PosNWtQ5XH8XCstrLMkU
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security:
+        - bearer: []
+      x-apidog-folder: Jobs
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490047-run
+    post:
+      summary: Create Job
+      deprecated: false
+      description: ''
+      tags:
+        - Jobs
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                position:
+                  type: string
+              required:
+                - company
+                - position
+              x-apidog-orders:
+                - company
+                - position
+              x-apidog-ignore-properties: []
+            example:
+              company: microsoft
+              position: front-end
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security:
+        - bearer: []
+      x-apidog-folder: Jobs
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490048-run
+  /v1/jobs/{id}:
+    get:
+      summary: Get Job
+      deprecated: false
+      description: ''
+      tags:
+        - Jobs
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security:
+        - bearer: []
+      x-apidog-folder: Jobs
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490049-run
+    patch:
+      summary: Update Job
+      deprecated: false
+      description: ''
+      tags:
+        - Jobs
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                position:
+                  type: string
+              required:
+                - company
+                - position
+              x-apidog-orders:
+                - company
+                - position
+              x-apidog-ignore-properties: []
+            example:
+              company: random
+              position: cyber-management
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security:
+        - bearer: []
+      x-apidog-folder: Jobs
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490050-run
+    delete:
+      summary: Delete Job
+      deprecated: false
+      description: ''
+      tags:
+        - Jobs
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+                x-apidog-orders: []
+                x-apidog-ignore-properties: []
+          headers: {}
+          x-apidog-name: Success
+      security:
+        - bearer: []
+      x-apidog-folder: Jobs
+      x-apidog-status: released
+      x-run-in-apidog: https://apidog.com/web/project/729562/apis/api-11490051-run
+components:
+  schemas: {}
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+
