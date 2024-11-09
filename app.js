@@ -37,7 +37,10 @@ app.use(xss());
 
 // routes
 app.get('/', (req, res) => {
-  res.send('jobs api');
+  res.send(`
+  <h1>Jobs Api</h1>
+  <a href="/api-doc">Documentation</a>  
+  `);
 });
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
